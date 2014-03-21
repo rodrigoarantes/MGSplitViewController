@@ -1052,16 +1052,20 @@
 	}
 	
 	BOOL changed = YES;
-	if ([_viewControllers count] > 1) {
-		if ([_viewControllers objectAtIndex:1] == detail) {
-			changed = NO;
-		} else {
-			[_viewControllers replaceObjectAtIndex:1 withObject:detail];
-		}
-		
-	} else {
-		[_viewControllers addObject:detail];
-	}
+    
+    if(detail){
+        if ([_viewControllers count] > 1) {
+            if ([_viewControllers objectAtIndex:1] == detail) {
+                changed = NO;
+            } else {
+                [_viewControllers replaceObjectAtIndex:1 withObject:detail];
+            }
+            
+        } else {
+            [_viewControllers addObject:detail];
+        }
+    }
+	
 	
 	if (changed) {
 		[self layoutSubviews];
